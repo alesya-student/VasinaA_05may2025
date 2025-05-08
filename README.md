@@ -19,7 +19,7 @@ URL сайта https://www.sibdar-spb.ru/
 6. ветка - 4_Auto
 API и UI тесты функциональности корзины.
 Использованы: Python, Selenium, Requests, pytest, Allure.
-Запуск тестов через терминал командой python -m pytest test_ui.py
+Запуск тестов через терминал командой python -m pytest test_ui.py -v
 
 7. ветка - 5_Soft
 Призентация работы.
