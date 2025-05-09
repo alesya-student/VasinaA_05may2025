@@ -3,7 +3,7 @@
 		"_postman_id": "f0e68f37-2c6f-4c1a-8619-e056070deb7c",
 		"name": "Смоук тесты",
 		"description": "# About this collection\n\nThis collection helps you set up contract tests to ensure that two separate systems are compatible and can communicate with one another.\n\n## **Using the collection**\n\n**Step 1:** Send the sample requests and view the response and test results.\n\n**Step 2:** Replace the sample request URLs with your desired API endpoints.\n\n**Step 3:** Customize the tests in the \"Tests\" tab if needed. Don't forget to save your changes.\n\n### Resources\n\n[Scripting in Postman](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)\n\n[Test script examples](https://learning.postman.com/docs/writing-scripts/script-references/test-examples/)\n\n[Postman Sandbox API reference](https://learning.postman.com/docs/sending-requests/grpc/postman-sandbox-api/#writing-assertions)\n\n[Using the Collection Runner](https://learning.postman.com/docs/collections/running-collections/intro-to-collection-runs/)\n\n[  \n](https://postman.postman.co/documentation/24552533-5bead607-0197-4e1d-87d4-3160bc7631c1?entity=&branch=&version=)",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "34629795",
 		"_collection_link": "https://www.postman.com/dz5new/workspace/www-sibdar-spb-ru/collection/34629795-f0e68f37-2c6f-4c1a-8619-e056070deb7c?action=share&source=collection_link&creator=34629795"
 	},
@@ -65,19 +65,69 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "https://www.sibdar-spb.ru/ajax/basketOrder.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"sibdar-spb",
-						"ru"
-					],
-					"path": [
-						"ajax",
-						"basketOrder.php"
+				"url": "https://www.sibdar-spb.ru/ajax/basketOrder.php",
+				"description": "The tests in this request validate that:\n\n- the response code is 200\n- the response is a JSON object\n- the response has an 'arg' object\n- the response has 'headers' object\n- the response has a 'URL' property"
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление товара в корзину Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded; charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.sibdar-spb.ru/",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.sibdar-spb.ru",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "data",
+							"value": "{\"idCookie\":{{idCookie}}, \"idProd\":\"497\", \"type\":\"add\"}",
+							"type": "text"
+						}
 					]
 				},
+				"url": "{{baseUrl}}",
 				"description": "The tests in this request validate that:\n\n- the response code is 200\n- the response is a JSON object\n- the response has an 'arg' object\n- the response has 'headers' object\n- the response has a 'URL' property"
 			},
 			"response": []
@@ -95,34 +145,38 @@
 						"type": "text/javascript",
 						"packages": {}
 					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
 				}
 			],
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
 							"key": "data",
-							"value": "{\"idCookie\":\"451952\",\"idProd\":497,\"type\":\"plus\"}",
+							"value": "{\"idCookie\":{{idCookie}},\"idProd\":497,\"type\":\"plus\"}",
 							"type": "text"
 						}
 					]
 				},
-				"url": {
-					"raw": "https://www.sibdar-spb.ru/ajax/basketOrder.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"sibdar-spb",
-						"ru"
-					],
-					"path": [
-						"ajax",
-						"basketOrder.php"
-					]
-				},
+				"url": "{{baseUrl}}",
 				"description": "The tests in the request validate the response code and the data returned in the response is the same as the one being sent."
 			},
 			"response": []
@@ -154,28 +208,62 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "https://www.sibdar-spb.ru/ajax/basketOrder.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"sibdar-spb",
-						"ru"
-					],
-					"path": [
-						"ajax",
-						"basketOrder.php"
-					]
-				},
+				"url": "https://www.sibdar-spb.ru/ajax/basketOrder.php",
 				"description": "The tests in this request validate that the request body sent as form-data is valid."
 			},
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://postman-echo.com"
+			"value": "https://www.sibdar-spb.ru/ajax/basketOrder.php"
+		},
+		{
+			"key": "idCookie",
+			"value": "\"451952\"",
+			"type": "string"
+		},
+		{
+			"key": "Cookie",
+			"value": "PHPSESSID=3GdfCZ0BRQuNkKdIk3OX9sCoLOZUNjda",
+			"type": "string"
+		},
+		{
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "Base",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "id",
+			"value": "",
+			"type": "default"
 		}
 	]
 }
